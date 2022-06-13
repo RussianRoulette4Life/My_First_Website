@@ -1,0 +1,113 @@
+<script>
+
+    const sendRequest = (method, url, body = null) => {
+      const headers = {
+        'Content-Type': 'application/json'
+      }
+      if (body){      
+            console.log(`body: ${JSON.stringify(body)}`)
+            return fetch(url, {
+                method: method,
+                body: JSON.stringify(body),
+                headers: headers
+            }).then(response => {
+                if (response.ok) {
+                    return response.json()
+                }
+
+                    return response.json().then(error => {
+                    const e = new Error(`something's wrong here`)
+                    e.data = error
+                    throw e
+                })
+            }
+            )
+        } else{
+            return fetch(url, {
+                method: method,
+                headers: headers
+            }).then(response => {
+                if (response.ok) {
+                    return response.json()
+                }
+
+                    return response.json().then(error => {
+                    const e = new Error(`something's wrong here`)
+                    e.data = error
+                    throw e
+                })
+            }
+            )
+        }
+    }
+
+    let inputs = document.getElementsByClassName('input_thing')
+    let allData = ''
+    const muncher = (signal)=>{
+        let name = signal.target.getAttribute('id').toString()
+        Object.defineProperty(dataGobbler, name, {
+            value: document.getElementById(signal.target.getAttribute('id')).value,
+            writable: true,
+            enumerable:true
+        })
+    }
+    const listen = (elem)=>{
+        console.log(dataGobbler)
+        elem.addEventListener('input',muncher)
+    }
+    let dataGobbler = new Object()
+    let backgrounds = ['yellow','green','red','cyan']
+    listen(inputs[0])
+    listen(inputs[1])
+    let numberOfSub = 0
+    let numberOfBG = 0
+
+    //--Fucntion on  click, adds comment element on view--//
+
+    const saveChanges = (text = dataGobbler)=>{
+
+        numberOfSub +=1
+        const oatmeal = document.createElement('div')
+        const wrapper = document.querySelector('.main_content')
+        oatmeal.innerHTML = `<h2>Your submission, №${numberOfSub}</h2>`+`<ul><li>Your email: ${text.email_user? text.email_user:'no data'}</li>` + `<li>Your comment: ${text.comment? text.comment:'no data'}</li></ul>`
+        oatmeal.className = `card ${backgrounds[numberOfBG]}`
+        numberOfBG === 3? numberOfBG =0: numberOfBG+=1
+        wrapper.append(oatmeal)
+        if (text.comment === 'i want to use the tracking dot!'){
+            placeholderFunc()
+            oatmeal.innerHTML+= '<ul>As you wish, head to the Welcome card :) (to get rid of it, hold ALT and drag your mouse away from the card)</ul>'
+        }
+        //--MAKING A POST REQUEST--//
+        if (text === dataGobbler){
+            console.log(JSON.stringify(dataGobbler))
+            sendRequest('POST', 'http://localhost:3000/', dataGobbler).then((data)=>{console.log(data)})
+        }
+    }
+    const heading = document.getElementById('theHead')//
+    const followUp = document.getElementById('interactiveElement')//
+    const placeholderFunc = ()=>{ return heading.addEventListener('mousemove', signal =>{
+        if (!(signal.altKey)){
+            followUp.style.borderColor = 'blue'
+            followUp.style.left = signal.clientX.toString()+ 'px'
+            followUp.style.top = signal.clientY.toString()+ 'px'
+            console.log(signal)
+        } else{
+            followUp.style.borderColor = 'rgba(0,0,0,0)'
+        }//
+    })
+    }
+    console.log('hey im here')
+
+    sendRequest('GET', 'http://localhost:3000/json')
+    .then((dataPoint)=>{
+        if (dataPoint){
+        for (let user of dataPoint){
+            saveChanges(user)
+        }
+        }
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
+
+</script>

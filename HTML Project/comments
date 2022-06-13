@@ -1,0 +1,70 @@
+[{
+  "_id": {
+    "$oid": "628e3586f41109d9fc38c55b"
+  },
+  "url": "localhost:3000",
+  "visits": 250,
+  "reviews": [
+    {
+      "email": "hey-mate@gmail.com",
+      "comment": "piece of piss",
+      "rating": 1
+    },
+    {
+      "email": "me@yahoo.ch",
+      "comment": "*chinese*",
+      "rating": 3
+    },
+    {
+      "email": "makes_sense@ya.ru",
+      "comment": "russian appreciation",
+      "rating": 5
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6290ed1d6edb7b751f3f3de1"
+  },
+  "url": "localhost:3000/really",
+  "visits": 7,
+  "reviews": [
+    {
+      "email": "hey-mate@gmail.com",
+      "comment": "got a bit better",
+      "rating": 3
+    },
+    {
+      "email": "duuude@yahoo.ch",
+      "comment": "*chinese*",
+      "rating": 1
+    },
+    {
+      "email": "makes_sense@ya.ru",
+      "comment": "even more russian appreciation",
+      "rating": 5
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6290ed1d6edb7b751f3f3de2"
+  },
+  "url": "localhost:3000/404",
+  "visits": 129,
+  "reviews": [
+    {
+      "email": "hey-mate@gmail.com",
+      "comment": "piece of WOW",
+      "rating": 8
+    },
+    {
+      "email": "i_guess_not@yahoo.ch",
+      "comment": "*idk anymore*",
+      "rating": 3
+    },
+    {
+      "email": "huh_ok@ya.ru",
+      "comment": "russian appreciation",
+      "rating": 6
+    }
+  ]
+}]

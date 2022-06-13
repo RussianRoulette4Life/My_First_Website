@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/theHead.ejs')  %> 
+<body>
+    <div class="all_the_stuff">
+        <div class="headline" title="The Welcome Card" id="theHead">
+            <hr class="hr">
+            <h1>Welcome to me website!</h1>
+            <h3>Hope you have some fun :)</h3>
+            <p>This website was created just because... why not??</p>
+            <hr class="hr">
+        </div>
+        <div class="some_background_work">
+        <%- include('./partials/navigation.ejs') %> 
+            <div class="main_content">
+                <div class="card yellow">
+                <h2>What do i do for fun as an extra activity?</h2>
+                <p>Here's a list of what i like to do:</p>
+                <ul>
+                    <li>I like going to the gym</li>
+                    <li>I like chatting with people</li>
+                    <li>I like programming</li>
+                </ul>
+                </div>
+                <div class="card red">
+                    <h2>What tools do i use on everyday basis?</h2>
+                    <p>Here's a list:</p>
+                    <ol>
+                        <li><a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a></li>
+                        <li><a href="https://youtubevanced.com/" target="_blank">Youtube Vanced</a></li>
+                        <li><a href="http://developer.mozilla.org" target="_blank" rel="noopener noreferrer">MDN documentation (frontend technologies)</a></li>
+                    </ol>
+                </div>
+                <div class="header_and_table card cyan">
+                    <h2>Random table for no reason other than to have fun :)</h3>
+                    <table class="word_info">
+                        <tr class="table_header">
+                            <td>Word</td>
+                            <td>Formality</td>
+                            <td>Use case</td>
+                        </tr>
+                        <tr class="column">
+                            <td>Hey!</td>
+                            <td>Non-formal</td>
+                            <td>To friends and family on daily basis</td>     
+                        </tr>
+                        <tr class="column">
+                            <td>Hello!</td>
+                            <td>Normal</td>
+                            <td>For everyone</td>
+                        </tr>
+                        <tr class="column">
+                            <td>Greetings!</td>
+                            <td>Formal</td>
+                            <td>Mostly for speaking with someone important</td>
+                        </tr>
+                    <tr class="column">
+                        <td>Hey!</td>
+                        <td>Non-formal</td>
+                        <td>To friends and family on daily basis</td>     
+                    </tr>
+                    <tr class="column">
+                        <td>Hello!</td>
+                        <td>Normal</td>
+                        <td>For everyone</td>
+                    </tr>
+                    <tr class="column">
+                        <td>Greetings!</td>
+                        <td>Formal</td>
+                        <td>Mostly for speaking with someone important</td>
+                    </tr>
+                    </table>
+                </div>
+                <div class="card green">
+                <h2>Sing up for blog updates</h2>
+                <form action="http://localhost:3000/" method="post" class="sign_in">
+                    <div class="input_box">
+                        <label for="email_user">Your email: </label>
+                        <input type="email" id="email_user" placeholder="Enter your e-mail..." class="input_thing">
+                    </div>
+                    <div class="input_box">
+                        <label for="comment">Consider leaving a comment: </label>
+                        <textarea  id="comment" cols="30" rows="10" class="text_ig input_thing" ></textarea>
+                    </div>
+                    <input onclick="saveChanges()" type="button" class="btn" value="Submit your comment!">
+                </form>
+                </div> 
+                
+                <div id="interactiveElement"></div>   
+            </div>
+    </div>
+    <p class="foot">~2022, Someone~</p>
+    </div>
+    <%- include('./partials/scripts.ejs') %> 
+
+</body>
+</html>
