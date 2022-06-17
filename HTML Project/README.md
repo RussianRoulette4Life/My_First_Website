@@ -12,18 +12,18 @@ The site itself is simple, some personal stuff and activities listed there for f
 Install mongodb locally (or register a ``mongodb atlas`` cluster if you can rewrite the code)
 
 ```bash
-Here's a link: https://mongodb.com 
+Here is a link: https://mongodb.com 
 ```
 Clone the project
 
 ```bash
-  git clone *enter link to project*
+  git clone https://github.com/RussianRoulette4Life/My_First_Website
 ```
 
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd My_First_Website
 ```
 
 Install dependencies
